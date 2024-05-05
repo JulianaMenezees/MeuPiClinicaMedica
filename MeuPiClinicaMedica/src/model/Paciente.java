@@ -12,6 +12,23 @@ public class Paciente {
     private String nCarteirinha;
     private String telefone;
     private String email;
+    private int convenio;
+
+    public String getNomePaciente() {
+        return nomePaciente;
+    }
+
+    public void setNomePaciente(String nomePaciente) {
+        this.nomePaciente = nomePaciente;
+    }
+
+    public int getConvenio() {
+        return convenio;
+    }
+
+    public void setConvenio(int convenio) {
+        this.convenio = convenio;
+    }
  
 
     public String getNome() {

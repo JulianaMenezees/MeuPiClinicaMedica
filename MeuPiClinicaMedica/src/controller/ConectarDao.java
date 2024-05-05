@@ -32,6 +32,7 @@ public class ConectarDao {
                 + "celular varchar (50) not null,"
                 + "nCarteirinha varchar (50) not null,"
                 + "email varchar (50) not null,"
+                + "convenio int not null,"
                 + "primary key (cpf) )";
 
         try {
@@ -46,6 +47,8 @@ public class ConectarDao {
         sql = "CREATE TABLE IF NOT EXISTS FUNCIONARIOS("
                 + "nome varchar(50) not null,"
                 + "cpf varchar(50) not null,"
+                + "telefone varchar(50) not null,"
+                + "endereco varchar(50) not null,"
                 + "cargo varchar(50) not null,"
                 + "senha int not null,"
                 + "primary key (cpf) )";
@@ -80,7 +83,7 @@ public class ConectarDao {
                 + "nome varchar(50) not null,"
                 + "cpf varchar (50) not null,"
                 + "crm varchar(50) not null,"
-                + "especialidade varchar(50) not null,"
+                + "especialidade int not null,"
                 + "primary key ( crm ) )";
         try {
             PreparedStatement ps = con.prepareStatement(sql);

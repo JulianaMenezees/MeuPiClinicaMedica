@@ -6,7 +6,7 @@ package model;
 
 public class Medico {
    private String nomeMedico;
-   private String especialidade;
+   private int especialidade;
    private String crm;
    private String cpf;
 
@@ -34,11 +34,11 @@ public class Medico {
         this.crm = crm;
     }
 
-    public String getEspecialidade() {
+    public int getEspecialidade() {
         return especialidade;
     }
 
-    public void setEspecialidade(String especialidade) {
+    public void setEspecialidade(int especialidade) {
         this.especialidade = especialidade;
     }
    

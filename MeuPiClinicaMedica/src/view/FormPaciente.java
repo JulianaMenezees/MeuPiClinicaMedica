@@ -54,6 +54,7 @@ public class FormPaciente extends javax.swing.JFrame {
         btnNovo = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
+        cmbConvenio = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -66,10 +67,10 @@ public class FormPaciente extends javax.swing.JFrame {
 
         tablepac.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "NOME", "CPF", "RG", "CELULAR", "CARTEIRINHA", "EMAIL"
+                "NOME", "CPF", "RG", "CELULAR", "CARTEIRINHA", "EMAIL", "CONVENIO"
             }
         ));
         tablepac.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -126,6 +127,8 @@ public class FormPaciente extends javax.swing.JFrame {
             }
         });
 
+        cmbConvenio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -134,35 +137,40 @@ public class FormPaciente extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(textEmail)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel1)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(textNome, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(textCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel3)
-                                            .addComponent(textCelular, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addGap(46, 46, 46)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(jLabel5)
-                                            .addComponent(textCarteirinha, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(textRG, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVoltar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(153, 556, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnNovo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))))
+                            .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(cmbConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(textEmail)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel1)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(textNome, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(textCpf, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                                                    .addComponent(jLabel2)
+                                                    .addComponent(jLabel3)
+                                                    .addComponent(textCelular, javax.swing.GroupLayout.Alignment.TRAILING))
+                                                .addGap(46, 46, 46)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel6)
+                                                    .addComponent(jLabel5)
+                                                    .addComponent(textCarteirinha, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(textRG, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(39, 39, 39))
         );
         jPanel1Layout.setVerticalGroup(
@@ -208,7 +216,9 @@ public class FormPaciente extends javax.swing.JFrame {
                 .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnIncluir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
+                .addComponent(cmbConvenio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -228,8 +238,16 @@ public class FormPaciente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        DefaultComboBoxModel obj;
+        obj = (DefaultComboBoxModel) this.cmbConvenio.getModel();
+        obj.removeAllElements();
+        obj.addElement("");
+        obj.addElement("1- Particular");
+        obj.addElement("2- Amil");
+        obj.addElement("3- Bradesco");
+        obj.addElement("4- NotreDame");
+        obj.addElement("5- Unimed");
         carregar_pacientes();
-
     }//GEN-LAST:event_formWindowOpened
 
     private void btnIncluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIncluirMouseClicked
@@ -242,6 +260,7 @@ public class FormPaciente extends javax.swing.JFrame {
         Lu.setTelefone(this.textCelular.getText());
         Lu.setnCarteirinha(this.textCarteirinha.getText());
         Lu.setEmail(this.textEmail.getText());
+        Lu.setConvenio(this.cmbConvenio.getSelectedIndex());
 
         PacienteDao u1 = new PacienteDao();
 
@@ -280,7 +299,8 @@ public class FormPaciente extends javax.swing.JFrame {
                 this.textCelular.setText(resul.getString("celular"));
                 this.textCarteirinha.setText(resul.getString("nCarteirinha"));
                 this.textEmail.setText(resul.getString("email"));
-                
+                this.cmbConvenio.setSelectedIndex(resul.getInt("cargo"));
+
             } else {
                 JOptionPane.showMessageDialog(null, "Registro não encontrado!");
                 this.textNome.grabFocus();
@@ -298,7 +318,7 @@ public class FormPaciente extends javax.swing.JFrame {
         this.textCelular.setText("");
         this.textCarteirinha.setText("");
         this.textEmail.setText("");
-       
+        this.cmbConvenio.setSelectedIndex(0);
         this.textNome.grabFocus();
     }//GEN-LAST:event_btnNovoMouseClicked
 
@@ -317,9 +337,9 @@ public class FormPaciente extends javax.swing.JFrame {
 
         Paciente obj = new Paciente();
         obj.setCPF((String) chave);
-        
+
         PacienteDao u1 = new PacienteDao();
-        
+
         ResultSet resul = u1.buscar(obj);
         try {
             if (resul.next()) {
@@ -329,7 +349,8 @@ public class FormPaciente extends javax.swing.JFrame {
                 this.textCelular.setText(resul.getString("celular"));
                 this.textCarteirinha.setText(resul.getString("nCarteirinha"));
                 this.textEmail.setText(resul.getString("email"));
-                
+                this.cmbConvenio.setSelectedIndex(resul.getInt("convenio"));
+
             } else {
                 JOptionPane.showMessageDialog(null, "Registro não encontrado!");
                 this.textNome.grabFocus();
@@ -367,7 +388,7 @@ public class FormPaciente extends javax.swing.JFrame {
                     resul.getString("celular"),
                     resul.getString("nCarteirinha"),
                     resul.getString("email"),
-                    };
+                    resul.getInt("convenio"),};
 
                 mytbmodel.addRow(linhas);
             }
@@ -419,6 +440,7 @@ public class FormPaciente extends javax.swing.JFrame {
     private javax.swing.JButton btnIncluir;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JComboBox<String> cmbConvenio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

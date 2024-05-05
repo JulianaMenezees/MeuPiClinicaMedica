@@ -11,12 +11,12 @@ public class FuncionarioDao extends ConectarDao {
     private PreparedStatement ps;
 
     public FuncionarioDao() {
-        super(); 
+        super();
     }
 
     public void incluir(funcionario obj) {
 
-        sql = "INSERT INTO FUNCIONARIOS VALUES (?, ?, ?, ?)";
+        sql = "INSERT INTO FUNCIONARIOS VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
 
@@ -24,8 +24,10 @@ public class FuncionarioDao extends ConectarDao {
 
             ps.setString(1, obj.getNomeFuncionario());
             ps.setString(2, obj.getCpfFuncionario());
-            ps.setInt(3, obj.getCargo());
-            ps.setString(4, obj.getSenha());
+            ps.setString(3, obj.getTelefone());
+            ps.setString(4, obj.getEndereco());
+            ps.setInt(5, obj.getCargo());
+            ps.setString(6, obj.getSenha());
             ps.execute();
             ps.close();
 
@@ -86,19 +88,33 @@ public class FuncionarioDao extends ConectarDao {
     }
 
     public void alterar(funcionario obj) {
-        sql = "UPDATE FUNCIONARIOS SET cpf = ?, nome = ?, cargo = ?, senha = ?";
+        sql = "UPDATE FUNCIONARIOS SET cpf = ?, nome = ?, telefone = ?, endereco = ?, cargo = ?, senha = ?";
         try {
-            ps = con.prepareStatement(sql);
-            ps.setString(1, obj.getCpfFuncionario());
-            ps.setString(2, obj.getNomeFuncionario());
-            ps.setInt(3, obj.getCargo());
-            ps.setString(4, obj.getSenha());
+            ps.setString(1, obj.getNomeFuncionario());
+            ps.setString(2, obj.getCpfFuncionario());
+            ps.setString(3, obj.getTelefone());
+            ps.setString(4, obj.getEndereco());
+            ps.setInt(5, obj.getCargo());
+            ps.setString(6, obj.getSenha());
             ps.execute();
             ps.close();
             JOptionPane.showMessageDialog(null, "Registro Alterado com Sucesso!");
         } catch (SQLException err) {
             JOptionPane.showMessageDialog(null,
                     "Erro ao Alterar funcionario!" + err.getMessage());
+        }
+    }
+
+    public ResultSet validarLogin(String login, String senha) {
+        sql = "Select * from funcionarios where cpf='" + login + "'"
+                + " and senha = '" + senha + "'";
+        try {
+            PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
+            ResultSet resul = ps.executeQuery();
+            return resul;
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, err.getMessage());
+            return null;
         }
     }
 

@@ -26,7 +26,7 @@ public class MedicoDao extends ConectarDao {
             ps.setString(1, obj.getNomeMedico());
             ps.setString(2, obj.getCpf());
             ps.setString(3, obj.getCrm());
-            ps.setString(4, obj.getEspecialidade());
+            ps.setInt(4, obj.getEspecialidade());
             ps.execute();
             ps.close();
 
@@ -91,7 +91,7 @@ public class MedicoDao extends ConectarDao {
             ps.setString(1, obj.getNomeMedico());
             ps.setString(2, obj.getCpf());
             ps.setString(3, obj.getCrm());
-            ps.setString(4, obj.getEspecialidade());
+            ps.setInt(4, obj.getEspecialidade());
             ps.execute();
             ps.close();
             JOptionPane.showMessageDialog(null, "Registro Alterado com Sucesso!");

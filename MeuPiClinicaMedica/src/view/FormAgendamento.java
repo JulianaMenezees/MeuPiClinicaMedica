@@ -71,10 +71,7 @@ public class FormAgendamento extends javax.swing.JFrame {
         btnAgendar2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btnNovo = new javax.swing.JButton();
-        textNomeM = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        textCrm = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnAgendar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
@@ -85,6 +82,15 @@ public class FormAgendamento extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         textNomeP = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        btnBuscarP = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        btnBuscarM = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        textData = new javax.swing.JTextField();
+        textHora = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableAgen = new javax.swing.JTable();
 
@@ -121,23 +127,8 @@ public class FormAgendamento extends javax.swing.JFrame {
             }
         });
 
-        textNomeM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textNomeMActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setText("CRM Medico");
-
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setText("CPF Paciente");
-
-        textCrm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textCrmActionPerformed(evt);
-            }
-        });
+        jLabel3.setText("CPF PACIENTE");
 
         btnAgendar.setText("AGENDAR");
         btnAgendar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -151,7 +142,7 @@ public class FormAgendamento extends javax.swing.JFrame {
             }
         });
 
-        btnBuscar.setText("BUSCAR");
+        btnBuscar.setText("BUSCAR AGENDAMENTO");
         btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnBuscarMouseClicked(evt);
@@ -177,10 +168,15 @@ public class FormAgendamento extends javax.swing.JFrame {
 
         jLabel1.setText("AGENDAMENTO");
 
-        btnVoltar.setText("Voltar");
+        btnVoltar.setText("VOLTAR");
         btnVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnVoltarMouseClicked(evt);
+            }
+        });
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
             }
         });
 
@@ -191,7 +187,7 @@ public class FormAgendamento extends javax.swing.JFrame {
         });
 
         jLabel5.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel5.setText("Nome Paciente");
+        jLabel5.setText("NOME PACIENTE");
 
         textNomeP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,96 +196,122 @@ public class FormAgendamento extends javax.swing.JFrame {
         });
 
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("Nome Medico");
+        jLabel7.setText("ESPECIALIDADE");
+
+        btnBuscarP.setText("BUSCAR PACIENTE");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnBuscarM.setText("BUSCAR MEDICO");
+        btnBuscarM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarMActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("MEDICO");
+
+        jLabel8.setText("DATA");
+
+        jLabel9.setText("HORA");
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(233, 233, 233)
-                                .addComponent(jLabel6))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel8)
+                                        .addComponent(textData, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel7)
+                                        .addComponent(textCpfP, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel3)
+                                        .addComponent(textNomeP, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(54, 54, 54)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnBuscarP)
+                                        .addComponent(btnBuscarM, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(textHora, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel9))))
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnVoltar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textNomeM, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textCrm, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textNomeP, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel5))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnVoltar)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAgendar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnNovo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(51, 51, 51))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(48, 48, 48)
-                    .addComponent(textCpfP, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(394, Short.MAX_VALUE)))
+                                    .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnAgendar)
+                                    .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(38, 38, 38)))
+                        .addGap(23, 23, 23))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(19, 19, 19)
-                .addComponent(btnBuscar)
-                .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnExcluir)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVoltar))
+                .addGap(5, 5, 5)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textCpfP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarP))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnNovo)
+                                .addGap(35, 35, 35))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(76, 76, 76)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnBuscarM)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(15, 15, 15)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(btnAgendar)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textNomeP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(3, 3, 3)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(btnNovo))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textCrm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnAgendar)
-                        .addGap(31, 31, 31)
-                        .addComponent(btnVoltar)
-                        .addContainerGap(48, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textNomeM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(84, 84, 84)
-                    .addComponent(textCpfP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(297, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(textNomeP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnExcluir))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(btnBuscar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50))
         );
 
         tableAgen.setModel(new javax.swing.table.DefaultTableModel(
@@ -297,7 +319,7 @@ public class FormAgendamento extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CPF Paciente", "Nome Paciente", "CRM", "Nome Medico", "ID Consulta"
+                "CPF PACIENTE", "NOME PACIENTE", "ESPECIALIDADE", "MEDICO", "DATA", "HORA"
             }
         ));
         tableAgen.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -311,13 +333,14 @@ public class FormAgendamento extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(2, 2, 2)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -326,56 +349,6 @@ public class FormAgendamento extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textCrmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCrmActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textCrmActionPerformed
-
-    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNovoActionPerformed
-
-    private void textNomeMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textNomeMActionPerformed
-
-    private void btnNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNovoMouseClicked
-        this.textCpfP.setText("");
-        this.textNomeP.setText("");
-        this.textCrm.setText("");
-        this.textNomeM.setText("");
-        this.textCpfP.grabFocus();
-    }//GEN-LAST:event_btnNovoMouseClicked
-
-    private void btnAgendarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgendarMouseClicked
-
-        agendamento Lu = new agendamento();
-
-        Lu.setCpfPac(this.textCpfP.getText());
-        Lu.setNomePaciente(this.textNomeP.getText());
-        Lu.setCRM(this.textCrm.getText());
-        Lu.setNomeMedico(this.textNomeM.getText());
-       
-        AgendamentoDao u1 = new AgendamentoDao();
-
-        ResultSet resul = u1.buscar(Lu);
-        try {
-            if (resul.next()) {
-                u1.alterar(Lu);
-            } else {
-                u1.incluir(Lu);
-            }
-        } catch (SQLException err) {
-            JOptionPane.showMessageDialog(null,
-                    err.getMessage());
-        }
-
-        this.carregar_agendamentos();
-    }//GEN-LAST:event_btnAgendarMouseClicked
-
-    private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAgendarActionPerformed
-
     private void btnAgendar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgendar2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgendar2MouseClicked
@@ -383,45 +356,6 @@ public class FormAgendamento extends javax.swing.JFrame {
     private void btnAgendar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendar2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgendar2ActionPerformed
-
-    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
-        
-        agendamento obj = new agendamento();
-
-        obj.setCpfPac(this.textCpfP.getText());
-
-        AgendamentoDao u1 = new AgendamentoDao();
-
-        ResultSet resul = u1.buscar(obj);
-
-        try {
-            if (resul.next()) {
-
-               this.textCpfP.setText(resul.getString("CpfPac"));
-                this.textNomeP.setText(resul.getString("nomePaciente"));
-                this.textCrm.setText(resul.getString("crm"));
-                this.textNomeM.setText(resul.getString("nomeMedico"));
-            } else {
-                JOptionPane.showMessageDialog(null, "Registro não encontrado!");
-                this.textCpfP.grabFocus();
-            }
-
-        } catch (SQLException err) {
-
-        }
-    }//GEN-LAST:event_btnBuscarMouseClicked
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void btnExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExcluirMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluirMouseClicked
-
-    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void tableAgenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableAgenMouseClicked
 
@@ -439,8 +373,7 @@ public class FormAgendamento extends javax.swing.JFrame {
             if (resul.next()) {
                 this.textCpfP.setText(resul.getString("CpfPac"));
                 this.textNomeP.setText(resul.getString("nomePaciente"));
-                this.textCrm.setText(resul.getString("crm"));
-                this.textNomeM.setText(resul.getString("nomeMedico"));
+                
             } else {
                 JOptionPane.showMessageDialog(null, "Registro não encontrado!");
                 this.textCpfP.grabFocus();
@@ -450,23 +383,109 @@ public class FormAgendamento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tableAgenMouseClicked
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        this.carregar_agendamentos();
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnBuscarMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarMActionPerformed
+
+    private void textNomePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomePActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNomePActionPerformed
+
+    private void textCpfPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCpfPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textCpfPActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
     private void btnVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarMouseClicked
         FormMenu objCli = new FormMenu();
         objCli.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVoltarMouseClicked
 
-    private void textCpfPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textCpfPActionPerformed
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textCpfPActionPerformed
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
-    private void textNomePActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomePActionPerformed
+    private void btnExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExcluirMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_textNomePActionPerformed
+    }//GEN-LAST:event_btnExcluirMouseClicked
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
+
+        agendamento obj = new agendamento();
+
+        obj.setCpfPac(this.textCpfP.getText());
+
+        AgendamentoDao u1 = new AgendamentoDao();
+
+        ResultSet resul = u1.buscar(obj);
+
+        try {
+            if (resul.next()) {
+
+                this.textCpfP.setText(resul.getString("CpfPac"));
+                this.textNomeP.setText(resul.getString("nomePaciente"));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Registro não encontrado!");
+                this.textCpfP.grabFocus();
+            }
+
+        } catch (SQLException err) {
+
+        }
+    }//GEN-LAST:event_btnBuscarMouseClicked
+
+    private void btnAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgendarActionPerformed
+
+    private void btnAgendarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgendarMouseClicked
+
+        agendamento Lu = new agendamento();
+
+        Lu.setCpfPac(this.textCpfP.getText());
+        Lu.setNomePaciente(this.textNomeP.getText());
+        
+
+        AgendamentoDao u1 = new AgendamentoDao();
+
+        ResultSet resul = u1.buscar(Lu);
+        try {
+            if (resul.next()) {
+                u1.alterar(Lu);
+            } else {
+                u1.incluir(Lu);
+            }
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null,
+                err.getMessage());
+        }
+
         this.carregar_agendamentos();
-    }//GEN-LAST:event_formWindowOpened
+    }//GEN-LAST:event_btnAgendarMouseClicked
+
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNovoActionPerformed
+
+    private void btnNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNovoMouseClicked
+        this.textCpfP.setText("");
+        this.textNomeP.setText("");
+        
+        this.textCpfP.grabFocus();
+    }//GEN-LAST:event_btnNovoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -510,21 +529,27 @@ public class FormAgendamento extends javax.swing.JFrame {
     private javax.swing.JButton btnAgendar;
     private javax.swing.JButton btnAgendar2;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarM;
+    private javax.swing.JButton btnBuscarP;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableAgen;
     private javax.swing.JTextField textCpfP;
-    private javax.swing.JTextField textCrm;
-    private javax.swing.JTextField textNomeM;
+    private javax.swing.JTextField textData;
+    private javax.swing.JTextField textHora;
     private javax.swing.JTextField textNomeP;
     // End of variables declaration//GEN-END:variables
 }

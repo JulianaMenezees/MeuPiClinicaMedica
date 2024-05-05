@@ -10,6 +10,8 @@ import controller.FuncionarioDao;
 import controller.MedicoDao;
 import controller.PacienteDao;
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -118,18 +120,24 @@ public class FormLogin extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         String login = textLogin.getText();
         String senha = passwordSenha.getText();
-        if (!login.equals("admin") || !senha.equals("1234")) {
-            JOptionPane.showMessageDialog(null,
-                    "Ususário ou Senha Inválidos!", "Erro de Operação",
-                    JOptionPane.WARNING_MESSAGE);
+        FuncionarioDao u = new FuncionarioDao();
+        try {
+            ResultSet resul = u.validarLogin(login, senha);
+            if (resul.next() || (login.equals("admin")
+                    && senha.equals("1234"))) {
+                FormMenu objCli = new FormMenu();
+                objCli.setVisible(true);
+                objCli.setTitle("usuário logado - " + login);
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        "Ususário ou Senha Inválidos!", "Erro de Operação",
+                        JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (SQLException err) {
+            JOptionPane.showMessageDialog(null, err.getMessage());
         }
 
-        FormMenu objCli = new FormMenu();
-        objCli.setVisible(true);
-        this.setVisible(false);
-        
-        ConectarDao cd = new ConectarDao();
-        cd.criarBanco();
 
     }//GEN-LAST:event_btnEntrarActionPerformed
 

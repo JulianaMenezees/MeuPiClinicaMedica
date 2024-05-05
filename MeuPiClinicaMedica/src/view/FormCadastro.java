@@ -7,6 +7,7 @@ package view;
 import controller.MedicoDao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Medico;
@@ -71,7 +72,6 @@ public class FormCadastro extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         textCpf = new javax.swing.JTextField();
         textNome = new javax.swing.JTextField();
-        textEspecialidade = new javax.swing.JTextField();
         textCrm = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnIncluir = new javax.swing.JButton();
@@ -79,6 +79,7 @@ public class FormCadastro extends javax.swing.JFrame {
         btnNovo = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
+        cmbEspecialidade = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -152,6 +153,8 @@ public class FormCadastro extends javax.swing.JFrame {
             }
         });
 
+        cmbEspecialidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -160,16 +163,16 @@ public class FormCadastro extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(textEspecialidade, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                        .addComponent(textCrm))
-                    .addComponent(jLabel6)
-                    .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3)
-                        .addComponent(textCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(textCrm, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)
+                        .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel4)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(textCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cmbEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnExcluir, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -207,11 +210,14 @@ public class FormCadastro extends javax.swing.JFrame {
                 .addComponent(btnIncluir)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVoltar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVoltar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(cmbEspecialidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -244,7 +250,7 @@ public class FormCadastro extends javax.swing.JFrame {
         Lu.setNomeMedico(this.textNome.getText());
         Lu.setCpf(this.textCpf.getText());
         Lu.setCrm(this.textCrm.getText());
-        Lu.setEspecialidade(this.textEspecialidade.getText());
+        Lu.setEspecialidade(this.cmbEspecialidade.getSelectedIndex());
 
         MedicoDao u1 = new MedicoDao();
 
@@ -279,7 +285,7 @@ public class FormCadastro extends javax.swing.JFrame {
                 this.textNome.setText(resul.getString("nome"));
                 this.textCpf.setText(resul.getString("cpf"));
                 this.textCrm.setText(resul.getString("crm"));
-                this.textEspecialidade.setText(resul.getString("especialidade"));
+                this.cmbEspecialidade.setSelectedIndex(resul.getInt("especialidade"));
             } else {
                 JOptionPane.showMessageDialog(null, "Registro não encontrado!");
                 this.textCpf.grabFocus();
@@ -294,7 +300,7 @@ public class FormCadastro extends javax.swing.JFrame {
         this.textNome.setText("");
         this.textCpf.setText("");
         this.textCrm.setText("");
-        this.textEspecialidade.setText("");
+        this.cmbEspecialidade.setSelectedIndex(0);
         this.textCpf.grabFocus();
     }//GEN-LAST:event_btnNovoMouseClicked
 
@@ -321,7 +327,7 @@ public class FormCadastro extends javax.swing.JFrame {
                 this.textNome.setText(resul.getString("nome"));
                 this.textCpf.setText(resul.getString("cpf"));
                 this.textCrm.setText(resul.getString("crm"));
-                this.textEspecialidade.setText(resul.getString("especialidade"));
+                this.cmbEspecialidade.setSelectedIndex(resul.getInt("especialidade"));
             } else {
                 JOptionPane.showMessageDialog(null, "Registro não encontrado!");
                 this.textNome.grabFocus();
@@ -338,7 +344,20 @@ public class FormCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-
+        DefaultComboBoxModel obj;
+        obj = (DefaultComboBoxModel) this.cmbEspecialidade.getModel();
+        obj.removeAllElements();
+        obj.addElement("");
+        obj.addElement("1- Clinico Geral");
+        obj.addElement("2- Pediatra");
+        obj.addElement("3- Geriatra");
+        obj.addElement("4- Nutricionista");
+        obj.addElement("5- Psicologo");
+        obj.addElement("6- Dermatoligista");
+        obj.addElement("7- Ginecologista");
+        obj.addElement("8- Urologista");
+        obj.addElement("9- Dentista");
+        obj.addElement("10- Obstetra");
       this.carregar_medicos();
 
     }//GEN-LAST:event_formWindowOpened
@@ -384,6 +403,7 @@ public class FormCadastro extends javax.swing.JFrame {
     private javax.swing.JButton btnIncluir;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JComboBox<String> cmbEspecialidade;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -393,7 +413,6 @@ public class FormCadastro extends javax.swing.JFrame {
     private javax.swing.JTable tableMed;
     private javax.swing.JTextField textCpf;
     private javax.swing.JTextField textCrm;
-    private javax.swing.JTextField textEspecialidade;
     private javax.swing.JTextField textNome;
     // End of variables declaration//GEN-END:variables
 }

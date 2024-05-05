@@ -17,7 +17,7 @@ public class PacienteDao extends ConectarDao {
 
     public void incluir(Paciente obj) {
 
-        sql = "INSERT INTO PACIENTE VALUES (?, ?, ?, ?, ?, ?)";
+        sql = "INSERT INTO PACIENTE VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try {
 
@@ -29,6 +29,7 @@ public class PacienteDao extends ConectarDao {
             ps.setString(4, obj.getTelefone());
             ps.setString(5, obj.getnCarteirinha());
             ps.setString(6, obj.getEmail());
+            ps.setInt(7, obj.getConvenio());
             ps.execute();
             ps.close();
 
@@ -89,7 +90,7 @@ public class PacienteDao extends ConectarDao {
     }
 
     public void alterar(Paciente obj) {
-        sql = "UPDATE PACIENTE SET nome = ?, cpf = ?, rg = ?, celular =  ?, nCarteirinha = ?, email = ?";
+        sql = "UPDATE PACIENTE SET nome = ?, cpf = ?, rg = ?, celular =  ?, nCarteirinha = ?, email = ?, convenio = ?";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, obj.getNome());
@@ -98,6 +99,7 @@ public class PacienteDao extends ConectarDao {
             ps.setString(4, obj.getTelefone());
             ps.setString(5, obj.getnCarteirinha());
             ps.setString(6, obj.getEmail());
+            ps.setInt(7, obj.getConvenio());
             ps.execute();
             ps.close();
             JOptionPane.showMessageDialog(null, "Registro Alterado com Sucesso!");

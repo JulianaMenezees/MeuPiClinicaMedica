@@ -31,6 +31,7 @@ public class FormMenu extends javax.swing.JFrame {
         formMenu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         cmbMenu = new javax.swing.JComboBox<>();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +51,13 @@ public class FormMenu extends javax.swing.JFrame {
             }
         });
 
+        btnVoltar.setText("Voltar");
+        btnVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVoltarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout formMenuLayout = new javax.swing.GroupLayout(formMenu);
         formMenu.setLayout(formMenuLayout);
         formMenuLayout.setHorizontalGroup(
@@ -60,6 +68,10 @@ public class FormMenu extends javax.swing.JFrame {
                     .addComponent(cmbMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(116, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formMenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVoltar)
+                .addGap(21, 21, 21))
         );
         formMenuLayout.setVerticalGroup(
             formMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -68,7 +80,9 @@ public class FormMenu extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(57, 57, 57)
                 .addComponent(cmbMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addComponent(btnVoltar)
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -119,6 +133,12 @@ public class FormMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbMenuMouseClicked
 
+    private void btnVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarMouseClicked
+        FormLogin fl = new FormLogin();
+                fl.setVisible(true);
+                this.setVisible(false);
+    }//GEN-LAST:event_btnVoltarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -155,6 +175,7 @@ public class FormMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JComboBox<String> cmbMenu;
     private javax.swing.JPanel formMenu;
     private javax.swing.JLabel jLabel1;
